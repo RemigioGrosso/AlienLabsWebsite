@@ -1,0 +1,456 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --retro-primary: #00ff88;
+  --retro-secondary: #004e89;
+  --retro-accent: #ffd23f;
+  --retro-dark: #1a1a2e;
+  --retro-light: #f7f7f7;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+  }
+  
+  body {
+    font-feature-settings: "rlig" 1, "calt" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* Responsive Typography */
+  h1 {
+    @apply text-4xl sm:text-5xl lg:text-6xl font-retro-display font-bold leading-tight;
+  }
+  
+  h2 {
+    @apply text-3xl sm:text-4xl lg:text-5xl font-retro-display font-bold leading-tight;
+  }
+  
+  h3 {
+    @apply text-2xl sm:text-3xl lg:text-4xl font-retro-display font-bold leading-tight;
+  }
+  
+  h4 {
+    @apply text-xl sm:text-2xl lg:text-3xl font-retro-display font-semibold leading-tight;
+  }
+  
+  h5 {
+    @apply text-lg sm:text-xl lg:text-2xl font-retro-display font-semibold leading-tight;
+  }
+  
+  h6 {
+    @apply text-base sm:text-lg lg:text-xl font-retro-display font-semibold leading-tight;
+  }
+  
+  p {
+    @apply font-retro-body text-base sm:text-lg leading-relaxed;
+  }
+  
+  /* Focus styles for accessibility */
+  *:focus-visible {
+    @apply outline-2 outline-offset-2 outline-retro-primary;
+  }
+  
+  /* Selection styles */
+  ::selection {
+    @apply bg-retro-primary/30 text-retro-light;
+  }
+  
+  /* Scrollbar styles */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-retro-dark;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-retro-primary/50 rounded-full;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-retro-primary/70;
+  }
+}
+
+@layer components {
+  /* Card Components */
+  .retro-card {
+    @apply bg-retro-dark/50 backdrop-blur-sm border border-retro-primary/20 rounded-lg p-6 shadow-retro transition-all duration-300 hover:shadow-retro-accent hover:border-retro-accent/40;
+  }
+  
+  .retro-card-elevated {
+    @apply retro-card bg-retro-dark/70 shadow-retro-accent border-retro-primary/30;
+  }
+  
+  /* Button Components */
+  .retro-button {
+    @apply bg-retro-gradient text-retro-dark font-bold py-3 px-6 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-retro;
+  }
+  
+  .retro-button-outline {
+    @apply border-2 border-retro-primary text-retro-primary bg-transparent font-bold py-3 px-6 rounded-lg transition-all duration-300 hover:bg-retro-primary hover:text-retro-dark hover:shadow-retro;
+  }
+  
+  /* Text Components */
+  .retro-text-gradient {
+    @apply bg-retro-gradient bg-clip-text text-transparent;
+  }
+  
+  .retro-heading {
+    @apply font-retro-display font-bold text-retro-light;
+  }
+  
+  .retro-subheading {
+    @apply font-retro-body font-semibold text-retro-light/90;
+  }
+  
+  .retro-body-text {
+    @apply font-retro-body text-retro-light/80 leading-relaxed;
+  }
+  
+  /* Layout Components */
+  .retro-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .retro-container-narrow {
+    @apply max-w-4xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .retro-container-wide {
+    @apply max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  /* Grid Systems */
+  .retro-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6;
+  }
+  
+  .retro-grid-2 {
+    @apply grid grid-cols-1 md:grid-cols-2 gap-6;
+  }
+  
+  .retro-grid-4 {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6;
+  }
+  
+  .retro-grid-auto {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6;
+  }
+  
+  /* Section Components */
+  .retro-section {
+    @apply py-16 sm:py-20 lg:py-24;
+  }
+  
+  .retro-section-compact {
+    @apply py-12 sm:py-16 lg:py-20;
+  }
+  
+  .retro-section-hero {
+    @apply py-20 sm:py-24 lg:py-32;
+  }
+  
+  /* Responsive Utilities */
+  .retro-flex-center {
+    @apply flex items-center justify-center;
+  }
+  
+  .retro-flex-between {
+    @apply flex items-center justify-between;
+  }
+  
+  .retro-flex-col-center {
+    @apply flex flex-col items-center justify-center;
+  }
+  
+  /* Animation Utilities */
+  .retro-hover-lift {
+    @apply transition-transform duration-300 hover:-translate-y-1;
+  }
+  
+  .retro-hover-glow {
+    @apply transition-all duration-300 hover:shadow-retro;
+  }
+  
+  .retro-fade-in {
+    @apply opacity-0 animate-pulse;
+  }
+
+  /* Windows 95 Style Components with Ambient Glow */
+  .win95-window {
+    @apply bg-earthy-light border-2 border-earthy-dark border-t-earthy-medium border-l-earthy-medium;
+    box-shadow: 
+      inset -1px -1px 0 #3C3D37, 
+      inset 1px 1px 0 #ECDFCC,
+      0 0 20px rgba(0, 0, 0, 0.3),
+      0 0 40px rgba(0, 0, 0, 0.2),
+      0 0 60px rgba(0, 0, 0, 0.1);
+  }
+  
+  .win95-button {
+    @apply bg-earthy-light border-2 border-earthy-dark border-t-earthy-medium border-l-earthy-medium px-4 py-2 font-win95 text-sm cursor-pointer text-earthy-darkest;
+    box-shadow: 
+      inset -1px -1px 0 #3C3D37, 
+      inset 1px 1px 0 #ECDFCC,
+      0 0 8px rgba(0, 0, 0, 0.2);
+    text-shadow: 0 0 5px rgba(30, 32, 30, 0.4);
+  }
+  
+  .win95-button:hover {
+    @apply bg-earthy-medium text-earthy-light;
+    text-shadow: 0 0 10px rgba(236, 223, 204, 0.8);
+  }
+  
+  .win95-button:active {
+    @apply border-earthy-medium border-t-earthy-dark border-l-earthy-dark;
+    box-shadow: inset 1px 1px 0 #3C3D37, inset -1px -1px 0 #ECDFCC;
+  }
+  
+  .win95-titlebar {
+    @apply bg-earthy-medium text-earthy-light px-2 py-1 font-win95 text-sm font-bold flex items-center justify-between;
+    background: linear-gradient(90deg, #000000 0%, #3C3D37 100%);
+    text-shadow: 0 0 10px rgba(236, 223, 204, 0.8), 0 0 20px rgba(236, 223, 204, 0.5);
+  }
+  
+  .win95-panel {
+    @apply bg-earthy-light border border-earthy-dark p-4 text-earthy-darkest;
+    box-shadow: 
+      inset -1px -1px 0 #3C3D37, 
+      inset 1px 1px 0 #ECDFCC,
+      0 0 15px rgba(0, 0, 0, 0.2);
+    text-shadow: 0 0 8px rgba(30, 32, 30, 0.6);
+  }
+  
+  .win95-inset {
+    @apply bg-earthy-light border-2 border-earthy-medium border-t-earthy-dark border-l-earthy-dark p-2 text-earthy-darkest;
+    box-shadow: 
+      inset 1px 1px 0 #3C3D37, 
+      inset -1px -1px 0 #ECDFCC,
+      0 0 10px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 0 6px rgba(30, 32, 30, 0.5);
+  }
+  
+  .earthy-desktop {
+    @apply bg-earthy-darkest min-h-screen;
+    background-image: 
+      radial-gradient(circle at 25% 25%, rgba(105, 117, 101, 0.05) 0%, transparent 60%),
+      radial-gradient(circle at 75% 75%, rgba(105, 117, 101, 0.03) 0%, transparent 60%),
+      radial-gradient(circle at 50% 10%, rgba(60, 61, 55, 0.04) 0%, transparent 70%),
+      radial-gradient(circle at 10% 90%, rgba(105, 117, 101, 0.02) 0%, transparent 50%);
+  }
+  
+  /* Desktop icon backlighting effects */
+  .desktop-icon-glow {
+    position: relative;
+  }
+  
+  .desktop-icon-glow::before {
+    content: '';
+    position: absolute;
+    inset: -12px;
+    background: radial-gradient(circle, rgba(0, 255, 0, 0.2) 0%, rgba(0, 255, 0, 0.1) 40%, transparent 70%);
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+  }
+  
+  .desktop-icon-glow:hover::before {
+    opacity: 1;
+  }
+  
+  /* Green accent styles */
+  .green-accent {
+    @apply text-win95-green;
+  }
+  
+  .earthy-glow-text {
+    color: #000000;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 0, 0, 0.6), 0 0 30px rgba(0, 0, 0, 0.4);
+  }
+  
+  /* Working CRT Monitor Effects */
+  @keyframes crt-flicker {
+    0% { opacity: 0.98; }
+    5% { opacity: 0.95; }
+    10% { opacity: 0.97; }
+    15% { opacity: 0.93; }
+    20% { opacity: 0.96; }
+    25% { opacity: 0.94; }
+    30% { opacity: 0.97; }
+    35% { opacity: 0.95; }
+    40% { opacity: 0.98; }
+    45% { opacity: 0.94; }
+    50% { opacity: 0.96; }
+    55% { opacity: 0.95; }
+    60% { opacity: 0.97; }
+    65% { opacity: 0.93; }
+    70% { opacity: 0.96; }
+    75% { opacity: 0.98; }
+    80% { opacity: 0.94; }
+    85% { opacity: 0.97; }
+    90% { opacity: 0.95; }
+    95% { opacity: 0.96; }
+    100% { opacity: 0.98; }
+  }
+
+  /* CRT Screen Effect */
+  .crt-monitor {
+    position: relative;
+  }
+
+  .crt-monitor::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(30, 32, 30, 0.1) 2px,
+        rgba(30, 32, 30, 0.1) 4px
+      );
+    pointer-events: none;
+    z-index: 10000;
+  }
+
+  .crt-monitor::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(30, 32, 30, 0.03);
+    pointer-events: none;
+    z-index: 9999;
+    animation: crt-flicker 4s infinite;
+  }
+
+  /* Authentic CRT Monitor Distortion */
+  .crt-distortion {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background: #1E201E;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  .crt-screen-warp {
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+    overflow: visible;
+    position: relative;
+    background: 
+      radial-gradient(
+        ellipse 120% 110% at center,
+        transparent 0%,
+        transparent 75%,
+        rgba(30, 32, 30, 0.2) 90%,
+        rgba(30, 32, 30, 0.5) 100%
+      );
+    box-shadow: 
+      inset 0 0 100px rgba(30, 32, 30, 0.6),
+      0 0 60px rgba(30, 32, 30, 0.8),
+      0 0 100px rgba(105, 117, 101, 0.2);
+  }
+
+  .crt-screen-warp::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background: 
+      radial-gradient(
+        ellipse 115% 105% at center,
+        transparent 0%,
+        transparent 80%,
+        rgba(30, 32, 30, 0.3) 95%,
+        rgba(30, 32, 30, 0.6) 100%
+      );
+    border-radius: 35px;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  /* Content warping to simulate CRT barrel distortion */
+  .crt-content {
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transform: 
+      perspective(1200px) 
+      rotateX(2deg) 
+      rotateY(0deg)
+      scale3d(1.05, 1.08, 1);
+    transform-origin: center center;
+    border-radius: 25px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* Additional barrel distortion overlay */
+  .crt-content::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      radial-gradient(
+        ellipse 130% 120% at center,
+        transparent 0%,
+        transparent 60%,
+        rgba(30, 32, 30, 0.05) 80%,
+        rgba(30, 32, 30, 0.15) 100%
+      );
+    pointer-events: none;
+    z-index: 10000;
+    border-radius: 25px;
+  }
+  
+  .win95-taskbar {
+    @apply bg-earthy-light border-t-2 border-earthy-medium h-12 flex items-center px-2 text-earthy-darkest;
+    box-shadow: inset 0 1px 0 #ECDFCC;
+  }
+
+  /* Prevent scrolling on desktop */
+  html, body {
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+  }
+  
+  .win95-start-button {
+    @apply win95-button flex items-center gap-2 font-bold;
+  }
+  
+  .win95-icon {
+    @apply w-8 h-8 bg-win95-gray border border-win95-darkgray flex items-center justify-center text-xs;
+    image-rendering: pixelated;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
