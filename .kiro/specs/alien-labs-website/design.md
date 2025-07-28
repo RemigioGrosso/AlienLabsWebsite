@@ -53,8 +53,8 @@ alien-labs-website/
 ### Core Components
 
 #### 1. Layout Components
-- **Header**: Navigation with retro-styled logo and menu
-- **Footer**: Company info and social links with retro styling
+- **Header**: Navigation with sleek retro-styled logo and menu
+- **Footer**: Company info and social links with sleek retro styling
 - **Navigation**: Responsive menu with smooth transitions
 
 #### 2. Social Media Components

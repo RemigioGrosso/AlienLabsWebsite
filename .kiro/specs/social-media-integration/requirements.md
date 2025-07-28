@@ -15,7 +15,7 @@ This feature will integrate real-time social media posts from YouTube, Instagram
 1. WHEN the website loads THEN the system SHALL fetch recent posts from YouTube, Instagram, and Twitter APIs
 2. WHEN posts are fetched successfully THEN the system SHALL display them in Windows 95-style pop-up windows
 3. WHEN a post is displayed THEN it SHALL include the original content preview, engagement metrics, and platform branding
-4. WHEN posts fail to load THEN the system SHALL gracefully fall back to sample content without breaking the user experience
+4. WHEN posts fail to load THEN the system SHALL not display any popups
 
 ### Requirement 2
 

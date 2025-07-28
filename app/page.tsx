@@ -60,7 +60,7 @@ export default function Home() {
         setLoadedElements(prev => new Set(Array.from(prev).concat(element.id)))
 
         if (element.id === 'browser-window') {
-          // Auto-open the browser window
+          // Auto-open the browser window - mobile responsive
           const browserWindow = {
             id: 'browser',
             title: 'Internet Explorer - Alien Labs',
@@ -76,9 +76,9 @@ export default function Home() {
                 initialTab="welcome"
               />
             ),
-            x: 120,
-            y: 40,
-            width: 'w-[1000px]',
+            x: typeof window !== 'undefined' && window.innerWidth < 768 ? 10 : 120,
+            y: typeof window !== 'undefined' && window.innerWidth < 768 ? 10 : 40,
+            width: 'w-full max-w-[1000px] md:w-[1000px]',
             height: 'h-auto',
             zIndex: 1000
           }
@@ -165,11 +165,11 @@ export default function Home() {
     <div className="h-screen w-screen fixed inset-0 overflow-hidden">
       {/* Keep original black background - no changes */}
 
-      {/* Cursor Light Effect - appears last */}
+      {/* Cursor Light Effect - appears last - disabled on mobile */}
       {loadedElements.has('cursor') && <CursorLight />}
 
-      {/* Social Media Pop-up Ads - appears with cursor */}
-      {loadedElements.has('cursor') && (
+      {/* Social Media Pop-up Ads - DISABLED FOR NOW */}
+      {/* {loadedElements.has('cursor') && (
         <SocialPopupAds 
           posts={posts}
           isLoading={postsLoading}
@@ -177,10 +177,12 @@ export default function Home() {
           displayInterval={30000} // 30 seconds between popups
           autoCloseDelay={12000} // 12 seconds auto-close
         />
-      )}
+      )} */}
 
-      {/* Desktop Icons - appear one by one */}
-      <div className="absolute top-4 left-4 space-y-6 z-10">
+      {/* Desktop Icons - appear one by one - responsive layout */}
+      <div className="absolute top-4 left-4 space-y-4 md:space-y-6 z-10 
+                      grid grid-cols-2 gap-2 md:grid-cols-1 md:gap-0 
+                      sm:grid-cols-1 sm:gap-0">
         {loadedElements.has('welcome-icon') && (
           <DesktopIcon
             icon="🛸"
