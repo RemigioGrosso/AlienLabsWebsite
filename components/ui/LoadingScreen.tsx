@@ -19,12 +19,6 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
     'Mounting Alien Labs OS partition... [OK]',
     'alien@labs:~$ sudo chroot /mnt/alienlabs',
     'Switching to Alien Labs environment...',
-    'alien@labs:~$ systemctl start creative-engine',
-    'Starting creative engine... [OK]',
-    'alien@labs:~$ systemctl start innovation-core',
-    'Loading innovation core... [OK]',
-    'alien@labs:~$ startx',
-    'Starting X11 desktop environment...',
     'Welcome to Alien Labs OS',
     'alien@labs:~$ _'
   ]
