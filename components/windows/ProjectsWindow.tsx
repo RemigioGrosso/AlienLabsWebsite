@@ -21,28 +21,22 @@ export default function ProjectsWindow() {
         </div>
       </div>
       
-      {/* Content */}
+      {/* Content - Empty Projects Folder */}
       <div className="win95-inset m-2 p-3 h-64 overflow-y-auto">
-        <div className="grid grid-cols-3 gap-3">
-          {[
-            { name: 'WebApp_Alpha', icon: '🌐', type: 'Web Application' },
-            { name: 'RetroUI_Kit', icon: '🎨', type: 'Design System' },
-            { name: 'AI_Assistant', icon: '🤖', type: 'AI Project' },
-            { name: 'GameDev_Tools', icon: '🎮', type: 'Game Tools' },
-            { name: 'Mobile_App', icon: '📱', type: 'Mobile App' },
-            { name: 'README.txt', icon: '📄', type: 'Text File' },
-          ].map((item, index) => (
-            <div key={index} className="flex flex-col items-center space-y-1 p-2 hover:bg-win95-lightgray cursor-pointer">
-              <div className="text-xl">{item.icon}</div>
-              <span className="text-xs text-center">{item.name}</span>
-            </div>
-          ))}
+        <div className="flex flex-col items-center justify-center h-full text-gray-600">
+          <div className="text-4xl mb-4">📁</div>
+          <p className="text-sm text-center">
+            This folder is empty.
+          </p>
+          <p className="text-xs text-center mt-2 text-gray-500">
+            Future project folders will appear here.
+          </p>
         </div>
       </div>
       
       {/* Status Bar */}
       <div className="bg-win95-gray border-t border-win95-darkgray px-2 py-1 text-xs">
-        6 object(s) selected
+        0 object(s)
       </div>
     </div>
   )

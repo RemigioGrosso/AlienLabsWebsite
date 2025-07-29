@@ -219,7 +219,7 @@ export default function Home() {
         {loadedElements.has('projects-icon') && (
           <DesktopIcon
             icon="📁"
-            label="File Explorer"
+            label="Projects"
             onClick={() => openWindow('projects')}
           />
         )}
