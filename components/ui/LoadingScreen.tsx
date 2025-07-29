@@ -85,13 +85,13 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
                     </>
                   ) : line.includes('[OK]') ? (
                     <>
-                      <span>{line.split('[OK]')[0]}</span>
+                      <span className="text-earthy-light" style={{ textShadow: '0 0 8px rgba(236, 223, 204, 0.6)' }}>{line.split('[OK]')[0]}</span>
                       <span className="text-green-400" style={{ textShadow: '0 0 8px rgba(74, 222, 128, 0.6)' }}>[OK]</span>
                     </>
                   ) : line.includes('password') ? (
                     <span className="text-yellow-400" style={{ textShadow: '0 0 8px rgba(250, 204, 21, 0.5)' }}>{line}</span>
                   ) : (
-                    <span>{line}</span>
+                    <span className="text-earthy-light" style={{ textShadow: '0 0 8px rgba(236, 223, 204, 0.6)' }}>{line}</span>
                   )}
                 </span>
               )}
@@ -111,13 +111,13 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
                 </>
               ) : currentLine.includes('[OK]') ? (
                 <>
-                  <span>{currentLine.split('[OK]')[0]}</span>
+                  <span className="text-earthy-light" style={{ textShadow: '0 0 8px rgba(236, 223, 204, 0.6)' }}>{currentLine.split('[OK]')[0]}</span>
                   <span className="text-green-400" style={{ textShadow: '0 0 8px rgba(74, 222, 128, 0.6)' }}>[OK]</span>
                 </>
               ) : currentLine.includes('password') ? (
                 <span className="text-yellow-400" style={{ textShadow: '0 0 8px rgba(250, 204, 21, 0.5)' }}>{currentLine}</span>
               ) : (
-                <span>{currentLine}</span>
+                <span className="text-earthy-light" style={{ textShadow: '0 0 8px rgba(236, 223, 204, 0.6)' }}>{currentLine}</span>
               )}
               {isTyping && <span className="animate-pulse bg-earthy-medium text-black w-2 h-4 inline-block ml-1">_</span>}
             </div>
