@@ -10,7 +10,6 @@ import TeamWindow from '@/components/windows/TeamWindow'
 import WelcomeTab from '@/components/tabs/WelcomeTab'
 import AboutTab from '@/components/tabs/AboutTab'
 import SocialTab from '@/components/tabs/SocialTab'
-import ProjectsTab from '@/components/tabs/ProjectsTab'
 import WelcomeWindow from '@/components/windows/WelcomeWindow'
 import LoadingScreen from '@/components/ui/LoadingScreen'
 import CursorLight from '@/components/ui/CursorLight'
@@ -45,6 +44,7 @@ export default function Home() {
     { id: 'computer-icon', delay: 200 },
     { id: 'projects-icon', delay: 300 },
     { id: 'team-icon', delay: 400 },
+    { id: 'internet-explorer-icon', delay: 450 },
     { id: 'recycle-icon', delay: 500 },
     { id: 'taskbar', delay: 600 },
     { id: 'browser-window', delay: 700 },
@@ -70,8 +70,7 @@ export default function Home() {
                 tabs={[
                   { id: 'welcome', title: 'Welcome', icon: '🛸', content: WelcomeTab },
                   { id: 'about', title: 'About Us', icon: 'ℹ️', content: AboutTab },
-                  { id: 'social', title: 'Social Posts', icon: '📱', content: SocialTab },
-                  { id: 'projects', title: 'Projects', icon: '📁', content: ProjectsTab }
+                  { id: 'social', title: 'Social Posts', icon: '📱', content: SocialTab }
                 ]}
                 initialTab="welcome"
               />
@@ -133,6 +132,26 @@ export default function Home() {
         x: 250 + Math.random() * 100,
         y: 200 + Math.random() * 100,
         width: 'w-80',
+        height: 'h-auto',
+        zIndex: newZIndex
+      },
+      'internet-explorer': {
+        id: `browser-${Date.now()}`,
+        title: 'Internet Explorer - Alien Labs',
+        icon: '🌐',
+        component: () => (
+          <TabbedBrowser
+            tabs={[
+              { id: 'welcome', title: 'Welcome', icon: '🛸', content: WelcomeTab },
+              { id: 'about', title: 'About Us', icon: 'ℹ️', content: AboutTab },
+              { id: 'social', title: 'Social Posts', icon: '📱', content: SocialTab }
+            ]}
+            initialTab="welcome"
+          />
+        ),
+        x: typeof window !== 'undefined' && window.innerWidth < 768 ? 10 : 120,
+        y: typeof window !== 'undefined' && window.innerWidth < 768 ? 10 : 40,
+        width: 'w-full max-w-[1000px] md:w-[1000px]',
         height: 'h-auto',
         zIndex: newZIndex
       }
@@ -209,6 +228,13 @@ export default function Home() {
             icon="👥"
             label="Team Directory"
             onClick={() => openWindow('team')}
+          />
+        )}
+        {loadedElements.has('internet-explorer-icon') && (
+          <DesktopIcon
+            icon="🌐"
+            label="Internet Explorer"
+            onClick={() => openWindow('internet-explorer')}
           />
         )}
         {loadedElements.has('recycle-icon') && (

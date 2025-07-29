@@ -89,13 +89,13 @@ export default function WelcomeTab() {
         <p className="text-black">
           Let&apos;s collaborate.
         </p>
-        <div className="flex justify-center space-x-4">
-          <button className="win95-button px-6 py-2 text-sm">
-            View Projects
-          </button>
-          <button className="win95-button px-6 py-2 text-sm">
+        <div className="flex justify-center">
+          <a 
+            href="mailto:remigiogrosso@gmail.com"
+            className="win95-button px-6 py-2 text-sm no-underline"
+          >
             Get In Touch
-          </button>
+          </a>
         </div>
       </div>
     </div>
